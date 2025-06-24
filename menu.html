@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Delicious Restaurant</title>
+    <link rel="stylesheet" href="serving.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Delicious</div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" id="cart-toggle">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="document.getElementById('cart-sidebar').classList.remove('active')">×</button>
+        </div>
+        <div class="cart-content">
+            <div id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </div>
+        </div>
+        <div class="cart-total">
+            <h4>Total: <span id="cart-total">$0.00</span></h4>
+            <div class="cart-actions">
+                <button class="clear-cart" onclick="cart.clearCart()">Clear Cart</button>
+                <button id="checkout-btn" class="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Confirm Your Order</h2>
+            <div id="modal-order-summary">
+                <!-- Order summary will be injected here -->
+            </div>
+            <div class="modal-total">
+                <strong>Total:</strong> <span id="modal-total-price"></span>
+            </div>
+            <button id="confirm-checkout-btn" class="checkout-btn">Confirm Order</button>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Our Menu</h1>
+            <p>Discover our culinary delights</p>
+        </div>
+    </section>
+
+    <section class="menu-content">
+        <div class="container">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="pizza.jpg" alt="Margherita Pizza">
+                    <div class="menu-item-info">
+                        <h3>Margherita Pizza</h3>
+                        <p>Fresh tomatoes, mozzarella, basil, and our signature sauce</p>
+                        <span class="price">$14.99</span>
+                        <button class="add-to-cart" 
+                                data-name="Margherita Pizza" 
+                                data-price="14.99" 
+                                data-image="pizza.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="salad.jpg" alt="Caesar Salad">
+                    <div class="menu-item-info">
+                        <h3>Caesar Salad</h3>
+                        <p>Crisp romaine lettuce, parmesan, croutons, and Caesar dressing</p>
+                        <span class="price">$10.99</span>
+                        <button class="add-to-cart" 
+                                data-name="Caesar Salad" 
+                                data-price="10.99" 
+                                data-image="salad.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="salmon.jpg" alt="Grilled Salmon">
+                    <div class="menu-item-info">
+                        <h3>Grilled Salmon</h3>
+                        <p>Fresh Atlantic salmon with lemon butter sauce and seasonal vegetables</p>
+                        <span class="price">$24.99</span>
+                        <button class="add-to-cart" 
+                                data-name="Grilled Salmon" 
+                                data-price="24.99" 
+                                data-image="restaurant.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="pasta.jpg" alt="Pasta Carbonara">
+                    <div class="menu-item-info">
+                        <h3>Pasta Carbonara</h3>
+                        <p>Creamy sauce with pancetta, parmesan, and fresh black pepper</p>
+                        <span class="price">$16.99</span>
+                        <button class="add-to-cart" 
+                                data-name="Pasta Carbonara" 
+                                data-price="16.99" 
+                                data-image="pizza.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="burger.jpg" alt="Beef Burger">
+                    <div class="menu-item-info">
+                        <h3>Classic Beef Burger</h3>
+                        <p>Angus beef patty with cheese, lettuce, tomato, and special sauce</p>
+                        <span class="price">$13.99</span>
+                        <button class="add-to-cart" 
+                                data-name="Classic Beef Burger" 
+                                data-price="13.99" 
+                                data-image="salad.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <img src="chocolate.jpg" alt="Chocolate Cake">
+                    <div class="menu-item-info">
+                        <h3>Chocolate Lava Cake</h3>
+                        <p>Warm chocolate cake with a molten center, served with vanilla ice cream</p>
+                        <span class="price">$8.99</span>
+                        <button class="add-to-cart" 
+                                data-name="Chocolate Lava Cake" 
+                                data-price="8.99" 
+                                data-image="restaurant.jpg">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2>Our Options</h2>
+        <div class="slider">
+            <div class="slides">
+                <div class="slide">
+                    <img src="pizza.jpg" alt="Pizza">
+                </div>
+                <div class="slide">
+                    <img src="salad.jpg" alt="Salad">
+                </div>
+                <div class="slide">
+                    <img src="salmon.jpg" alt="Salmon">
+                </div>
+                <div class="slide">
+                    <img src="chocolate.jpg" alt="Chocolate Cake">
+                </div>
+                <div class="slide">
+                    <img src="pasta.jpg" alt="Pasta">
+                </div>
+                <div class="slide">
+                    <img src="burger.jpg" alt="Juicy Burger">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
+                    <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>123 Restaurant Street</p>
+                    <p>City, State 12345</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Delicious Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Bites Restaurant</title>
+    <link rel="stylesheet" href="serving.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Delicious Bites</div>
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon" id="cart-toggle">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="document.getElementById('cart-sidebar').classList.remove('active')">×</button>
+        </div>
+        <div class="cart-content">
+            <div id="cart-items"></div>
+        </div>
+        <div class="cart-total">
+            <h4>Total: <span id="cart-total">$0.00</span></h4>
+            <div class="cart-actions">
+                <button class="clear-cart" onclick="cart.clearCart()">Clear Cart</button>
+                <button id="checkout-btn" class="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Confirm Your Order</h2>
+            <div id="modal-order-summary"></div>
+            <div class="modal-total">
+                <strong>Total:</strong> <span id="modal-total-price"></span>
+            </div>
+            <button id="confirm-checkout-btn" class="checkout-btn">Confirm Order</button>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Delicious Bites</h1>
+            <p>Experience the finest dining in town</p>
+        </div>
+    </section>
+
+    <section class="about-preview">
+        <div class="container">
+            <h2>Our Story</h2>
+            <p>Founded in 2010, Delicious Bites has been serving authentic cuisine with a modern twist. Our passion for food and commitment to quality has made us a favorite among food lovers.</p>
+            <a href="about.html" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section class="featured-menu">
+        <div class="container">
+            <h2>Featured Dishes</h2>
+            <div class="menu-card">
+                <div class="card">
+                    <img src="pizza.jpg" alt="Special Pizza">
+                    <h3>Special Pizza</h3>
+                    <p>Our signature pizza with premium toppings</p>
+                    <span class="price">$18.99</span>
+                    <button class="add-to-cart" 
+                            data-name="Special Pizza" 
+                            data-price="18.99" 
+                            data-image="pizza.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+                <div class="card">
+                    <img src="salad.jpg" alt="Fresh Salad">
+                    <h3>Fresh Salad</h3>
+                    <p>Organic greens with house dressing</p>
+                    <span class="price">$12.99</span>
+                    <button class="add-to-cart" 
+                            data-name="Fresh Salad" 
+                            data-price="12.99" 
+                            data-image="salad.jpg">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+            <a href="menu.html" class="btn">View Full Menu</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 11:00 AM - 10:00 PM</p>
+                    <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>123 Restaurant Street</p>
+                    <p>City, State 12345</p>
+                    <p>Phone: (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Delicious Bites Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="cart.js"></script>
+    <script>
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          document.getElementById('menu-toggle').checked = false;
+        });
+      });
+    </script>
+</body>
+</html> 
