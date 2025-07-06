@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Shopping-Cart/static/css/main.032ca359.css",
+    "main.js": "/Shopping-Cart/static/js/main.9c91c9e7.js",
+    "static/js/453.b924f6b6.chunk.js": "/Shopping-Cart/static/js/453.b924f6b6.chunk.js",
+    "static/media/restaurant.jpg": "/Shopping-Cart/static/media/restaurant.eae414eca9e70a52d9a0.jpg",
+    "static/media/salad.jpg": "/Shopping-Cart/static/media/salad.8aa64142d154b512899d.jpg",
+    "static/media/burger.jpg": "/Shopping-Cart/static/media/burger.69c06444d7b57a37eb51.jpg",
+    "static/media/salmon.jpg": "/Shopping-Cart/static/media/salmon.bdd5622978bafd7a45f3.jpg",
+    "static/media/pasta.jpg": "/Shopping-Cart/static/media/pasta.c3213cd8b0c15487b5c8.jpg",
+    "static/media/chocolate.jpg": "/Shopping-Cart/static/media/chocolate.fd3c45cd07ef3fdf8c8b.jpg",
+    "static/media/pizza.jpg": "/Shopping-Cart/static/media/pizza.1bdeefe906703379b5f5.jpg",
+    "index.html": "/Shopping-Cart/index.html",
+    "main.032ca359.css.map": "/Shopping-Cart/static/css/main.032ca359.css.map",
+    "main.9c91c9e7.js.map": "/Shopping-Cart/static/js/main.9c91c9e7.js.map",
+    "453.b924f6b6.chunk.js.map": "/Shopping-Cart/static/js/453.b924f6b6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.032ca359.css",
+    "static/js/main.9c91c9e7.js"
+  ]
+}
